@@ -161,3 +161,22 @@ FROM cliente c
 WHERE (pa.codigo_cliente is NULL) AND (ped.codigo_cliente is NULL);
 
 --1.4.6 ejercicio4
+use jardineria;
+SELECT 
+    e.nombre as Nombre,
+    o.linea_direccion1 as 'Dirección Oficina',
+    o.ciudad as Ciudad
+    
+FROM empleado e 
+    LEFT join oficina o on (o.codigo_oficina = e.codigo_oficina);
+WHERE o.codigo_oficina is NULL;
+
+--1.4.6 ejercicio5
+USE jardineria;
+SELECT
+
+    e.nombre
+
+FROM empleado e
+    RIGHT JOIN cliente c on (c.codigo_empleado_rep_ventas = e.codigo_empleado)
+WHERE e.codigo_empleado is NULL;
